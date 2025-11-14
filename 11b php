@@ -1,0 +1,28 @@
+Write a PHP Program to print first n numbers. Use Sticky form.-->
+
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1> Print first n Numbers </h1>
+
+    <form method="POST">
+        Enter the value of n :
+		<input type="number" name="t1" value="<?php echo isset($_POST['t1']) ? $_POST['t1'] : ''; ?>" required><br><br>
+        <button type="submit" name="submit"> Print </button>
+    </form>
+
+    <?php
+		if (isset($_POST['submit'])) {
+			// Retrieve the input value
+			$n = $_POST['t1'];
+			echo "<br>First n numbers are: <br>"; // Print n numbers
+			for ($i = 1; $i <= $n; $i++) {
+				echo $i . " ";
+			}
+		}
+    ?>
+
+</body>
+
+</html>
