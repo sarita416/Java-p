@@ -1,0 +1,45 @@
+Write a PHP program to accept two numbers from user and display addition using AJAX.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        // So each time button is clicked, this fun is called & 2 nos are sent to slip12bsem04php_addnos.php for addition
+        // The slip12bsem04php_addnos.php takes the input from this function & displays the result
+
+        function calculateSum() {
+            num1 = document.getElementById('num1').value;
+            num2 = document.getElementById('num2').value;
+
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById('result').innerHTML = this.responseText;
+                }
+            }; // end anonymous function
+            xmlhttp.open("GET", "slip12bsem04php_addnos.php?num1=" + num1 + "&num2=" + num2, true);
+            xmlhttp.send();
+        } // end of calculatesum()
+    </script>
+</head>
+
+<body>
+    <h1>Add two Nos. Using AJAX</h1>
+
+    <form>
+        Enter first No:
+        <input type="number" id="num1" name="num1" required><br><br>
+
+        Enter second No:
+        <input type="number" id="num2" name="num2" required><br><br>
+
+        <input type="button" value="Calculate" onclick="calculateSum()">
+    </form>
+    <br>
+
+    <div id="result">Result will appear here...</div>
+</body>
+
+</html>
