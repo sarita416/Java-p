@@ -1,0 +1,45 @@
+Create an abstract class Shape with method calc_area().Derive classes Circle(radius) andRectangle(len, br). Calculate area. (Use Method overriding).
+-->
+
+<?php
+
+	abstract class Shape
+	{
+		abstract function calarea();
+	}
+
+	class Circle extends Shape
+	{
+		protected $r;
+		public function __construct($r)
+		{
+			$this->r = $r;
+		}
+		function calarea()
+		{
+			echo "Area of Circle : " . number_format((pi() * pow($this->r, 2)), 2);
+		}
+	}
+
+	class Rectangle extends Shape
+	{
+		protected $l;
+		protected $b;
+		public function __construct($l, $b)
+		{
+			$this->l = $l;
+			$this->b = $b;
+		}
+		function calarea()
+		{
+			echo "<br>Area of Rectangle : " . ($this->l * $this->b);
+		}
+	}
+
+	$ob = new Circle(5);
+	$ob->calarea();
+
+	$ob1 = new Rectangle(5, 2);
+	$ob1->calarea();
+?>
+
