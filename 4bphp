@@ -1,0 +1,61 @@
+Derive a class square from class Rectangle. Create one more class circle. Create an interface with only one method called area (). Implement this interface in all the classes. Include appropriate data members and constructors in all classes. Write a program to accept details of a square, circle and rectangle and display the area.
+-->
+
+<?php
+
+	interface Shape
+	{
+		public function area();
+	}
+
+	class Rectangle implements Shape
+	{
+		protected $l, $b;
+
+		public function __construct($l, $b)
+		{
+			$this -> l = $l;
+			$this -> b = $b;
+		}
+
+		public function area()
+		{
+			$a = $this -> l * $this -> b;
+			return $a;
+		}
+	}
+
+	class Square extends Rectangle
+	{
+		public function __construct($side)
+		{
+			parent :: __construct($side, $side);
+		}
+	}
+
+	class Circle implements Shape
+	{
+		protected $r;
+
+		public function __construct($r)
+		{
+			$this -> r = $r;
+		}
+
+		public function area()
+		{
+			$b = pi() * pow($this->r, 2);
+			$b = number_format($b, 2); // formatting output
+			return $b;
+		}
+	}
+
+	$rectangle = new Rectangle(3, 4);
+	echo "Area of Rectangle : " . $rectangle -> area();
+
+	$square = new Square(3);
+	echo "<br>Area of square : " . $square -> area();
+
+	$circle = new Circle(4);
+	echo "<br>Area of circle : " . $circle -> area();
+?>
