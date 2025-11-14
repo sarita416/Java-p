@@ -1,0 +1,68 @@
+Write a PHP script to demonstrate the introspection for examining class (use function get_declared_classes() , get_class_methods() and get_class_vars()).
+-->
+
+<?php
+	//Define a sample class for introspection
+	class A
+	{
+		public $var1 = "Public_value1";
+		public $var2 = "Public_value2";
+		private $var3 = "Private_value";     //This won't be accessible with get_class_vars()
+
+		public function f1()
+		{
+			return "This is method f1().";
+		}
+		public function f2()
+		{
+			return "This is method f2().";
+		}
+		private function f3()
+		{
+			return "This is a private method f3().";
+		}
+	}
+
+	// Define another class
+	class B
+	{
+		public $varA = "Another_value";
+		public function f11()
+		{
+			return "This is another method f11().";
+		}
+	}
+
+	// Introspection Begins here
+	
+	echo "<h3>Declared Classes : <br>";
+	$classes = get_declared_classes();
+	
+	// print_r($classes); // Lists all declared classes
+
+	echo "</h3>";
+	foreach ($classes as $key => $v) {
+		echo "<br> $key : $v";
+	}
+	
+	echo "<h3>Class Methods of 'Sample Class A' : <br>";
+
+	$methods = get_class_methods('A');
+	// print_r($methods);
+
+	$i = 1;
+	foreach ($methods as $v) {
+		echo "<br> $i : $v";
+		$i++;
+	}
+
+	echo "<h3>Class Variables of 'Sample Class' : <br>";
+	$vars = get_class_vars('A'); 
+	// print_r($vars);
+
+	$i = 1;
+	foreach ($vars as $v) {
+		echo "<br> $i : $v";
+		$i++;
+	}
+?>
