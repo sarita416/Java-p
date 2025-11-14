@@ -1,0 +1,28 @@
+Write a program to display blinking text using jQuery.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blinking test</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Blinking text in a text field and para.....</h1>
+    <input type="text" id="t1" value="Blinking Text">
+    <p id="p1">This paragraph will blink every second.</p>
+    <p>This paragraph is static stationary paragraph</p>
+
+    <script>
+        $(document).ready(function()
+        {
+            function blinkText()
+            {
+                $('#p1').toggle();
+                $('#t1').toggle();
+            }
+            setInterval(blinkText, 600);
+        });
+    </script>
+</body>
+</html>
