@@ -1,0 +1,18 @@
+continue (2/2) --><!-- Do not run this file this is second file first run Slip_12_B.php. -->
+<!-- This php is called by slip12bsem04php.php. It sends two numbers to this script & the script displays addition of the nos -->
+
+<?php
+	// Check if num1 & num2 are set in the URL
+	if (isset($_GET['num1']) && isset($_GET['num2'])) {
+		$num1 = $_GET['num1'];
+		$num2 = $_GET['num2'];
+
+		$sum = $num1 + $num2;
+		echo "The sum of $num1 & $num2 is: $sum";
+	} else {
+		echo "Invalid input.";
+	}
+?>
+
+
+<!--
