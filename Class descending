@@ -1,0 +1,36 @@
+import java.util.Scanner;
+class Descending
+{
+    public static void main(String args[])
+    {
+        Scanner Sc = new Scanner(System.in);
+        int n, i, j;
+        System.out.println("How many cities do you want?");
+        n = Sc.nextInt(); 
+        String S[] = new String[n];
+        System.out.println("Enter the City");
+        for (i = 0; i < n; i++)
+        {
+            S[i] = Sc.next();
+        }
+
+        System.out.println("string:");
+        for (i = 0; i < n; i++)
+        {
+            for (j = i + 1; j < n; j++)
+            {
+                if (S[i].compareTo(S[j]) > 0)
+                {
+                    String t = S[i];
+                    S[i] = S[j];
+                    S[j] = t;
+                }
+            }
+        }
+        
+        for (i = 0; i < n; i++)
+        {
+            System.out.println(S[i]);
+        }
+    }
+}
